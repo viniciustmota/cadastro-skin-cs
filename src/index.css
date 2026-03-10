@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    width: 400px;
+    border: solid 1px;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+form div {
+    margin: 6px;
+}
+
+form label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+#div-button {
+    text-align: right;
+}
+
+table,
+tr,
+td,
+th {
+    margin: 0;
+    padding: 4px;
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: bisque;
+}
