@@ -4,36 +4,42 @@ import Listagem from "./components/list";
 import { useState } from "react";
 
 export default function App() {
-  const [alunos, setAlunos] = useState([
+  const [arma, setArma] = useState([
     {
-      ra: "123456",
-      nome: "Maria Silva",
-      curso: "ADS"
+      codigo: "123",
+      arma: "AWP",
+      skin: "AWP - Azul",
+      quantidade: 1,
+      raridade: "Dourada",
     },
     {
-      ra: "654321",
-      nome: "Pedro Silva",
-      curso: "ADS"
+      codigo: "123",
+      arma: "AWP",
+      skin: "AWP - Azul",
+      quantidade: 1,
+      raridade: "Dourada",
     },
     {
-      ra: "112233",
-      nome: "Ana Silva",
-      curso: "AMS - ADS"
+      codigo: "123",
+      arma: "AWP",
+      skin: "AWP - Azul",
+      quantidade: 1,
+      raridade: "Dourada",
     },
   ]);
 
-  function incluirAluno(novoAluno) {
-    setAlunos([...alunos, novoAluno]);
+  function incluirArma(novaArma) {
+    setArma([...arma, novaArma]);
   }
 
-  function excluirAluno(ra) {
-    setAlunos(alunos.filter(aluno => aluno.ra != ra))
+  function excluirArma(codigo) {
+    setArma(arma.filter((arma) => arma.codigo != codigo));
   }
   return (
     <>
-      <Titulo text="Cadastro de Livros" />
-      <Formulario adicionar={incluirAluno} />
-      <Listagem dados={alunos} remover={excluirAluno} />
+      <Titulo text="Destrancar Recipiente" />
+      <Formulario adicionar={incluirArma} />
+      <Listagem dados={arma} remover={excluirArma} />
     </>
-  )
+  );
 }

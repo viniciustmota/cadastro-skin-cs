@@ -1,5 +1,5 @@
-import { FaTrash } from "react-icons/fa";
-
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/error-boundaries */
 export default function Listagem({ dados, remover }) {
 
     let informacao = null;
@@ -10,30 +10,28 @@ export default function Listagem({ dados, remover }) {
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>RA</th>
-                            <th>Nome</th>
-                            <th>Curso</th>
-                            <th>Ações</th>
+                            <th>Codigo</th>
+                            <th>Arma</th>
+                            <th>Skin</th>
+                            <th>Quantidade</th>
+                            <th>Raridade</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {dados
-                            .sort((a, b) => a.nome.localeCompare(b.nome))
-                            .map((aluno) => (
-                                <tr key={aluno.ra}>
-                                    <td>{aluno.ra}</td>
-                                    <td>{aluno.nome}</td>
-                                    <td>{aluno.curso}</td>
-                                    <td>
-                                        <button onClick={() => remover(aluno.ra)}><FaTrash /></button>
-                                    </td>
-                                </tr>
-                            ))}
+                        {dados.map((arma) => (
+                            <tr key={arma.codigo}>
+                                <td>{arma.arma}</td>
+                                <td>{arma.skin}</td>
+                                <td>{arma.quantidade}</td>
+                                <td>{arma.raridade}</td>
+                                <td><button onClick={() => remover(arma.codigo)}>Excluir</button></td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             );
         } else {
-            informacao = <p>Nenhum aluno cadastrado.</p>;
+            informacao = <p>Nenhuma arma cadastrada.</p>;
         }
     } catch (error) {
         informacao = <p>Erro ao carregar dados.</p>;
@@ -42,7 +40,7 @@ export default function Listagem({ dados, remover }) {
     return (
         <>
             <hr />
-            <h2>Listagem de Alunos Cadastrados</h2>
+            <h2>Listagem de armas Cadastradas</h2>
             {informacao}
         </>
     );

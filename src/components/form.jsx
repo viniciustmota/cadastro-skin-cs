@@ -1,62 +1,72 @@
-import { useState } from "react";
+import { useState } from "react"
 
-export default function Formulario({ adicionar }) {
-    // Declaramos variáveis de estado para guardar os valores digitados
-    // nos campos do formulário
-    const [ra, setRa] = useState("")
-    const [nome, setNome] = useState("")
-    const [curso, setCurso] = useState("ADS")
+export default function Formulario({adicionar}) {
+    const [codigo, setCodigo] = useState("");
+    const [arma, setArma] = useState("");
+    const [skin, setSkin] = useState("");
+    const [quantidade, setQuantidade] = useState(0);
+    const [raridade, setRaridade] = useState("Branco");
 
-    function buttonClick() {
-        if (ra == "" || nome == "" || curso == "") {
-            alert("Preencha todos os campos")
+    function buttonClick () {
+        if (codigo == "" || arma == '' || skin == "" || quantidade == '' || raridade == '') {
+            alert("Preencha todos os campos!");
             return;
         }
-        let novoAluno = {
-            "ra": ra,
-            "nome": nome,
-            "curso": curso
+        let novaArma = {
+            'codigo': codigo,
+            'arma': arma,
+            'skin': skin,
+            'quantidade': quantidade,
+            'raridade': raridade,
+            
         }
-        adicionar(novoAluno)
-        setRa("")
-        setNome("")
-        setCurso("")
+        adicionar(novaArma);
+        setCodigo('')
+        setArma('')
+        setSkin('')
+        setQuantidade('')
+        setRaridade('')
+        
     }
     return (
+        
         <form>
             <div>
-                <label for="ra">RA: </label>
-                <input
-                    type="text"
-                    id="ra"
-                    size="12"
-                    maxlength="12"
-                    value={ra}
-                    onChange={(e) => setRa(e.target.value)}
-                />
+                <label for="codigo">Codigo: </label>
+                <input value={codigo} onChange={(e) => setCodigo(e.target.value)} 
+                type="text" id="ra" size="12" maxlength="12" />
             </div>
             <div>
-                <label for="nome">Nome: </label>
-                <input
-                    type="text"
-                    id="nome"
-                    size="30"
-                    maxlength="30"
-                    value={nome}
-                    onChange={(e) => setNome(e.target.value)}
-                />
+                <label for="arma">Arma: </label>
+                <input value={arma} onChange={(e) => setArma(e.target.value)} 
+                type="text" id="arma" size="12" maxlength="12" />
             </div>
             <div>
-                <label for="curso">Curso: </label>
-                <select id="curso" value={curso} onChange={(e) => setCurso(e.target.value)}>
-                    <option >ADS</option>
-                    <option>ADS - AMS</option>
-                    <option>Gestão</option>
-                    <option>Mecatrônica</option>
+                <label for="skin">Skin: </label>
+                <input value={skin} onChange={(e) => setSkin(e.target.value)} 
+                type="text" id="skin" size="30" maxlength="30" />
+            </div>
+            <div>
+                <label for="quantidade">Quantidade: </label>
+                <input value={quantidade} onChange={(e) => setQuantidade(e.target.value)} 
+                type="number" id="quantidade" size="30" maxlength="30" />
+            </div>
+            <div>
+                <label for="raridade">Raridade: </label>
+                <select value={raridade} onChange={(e) => setRaridade(e.target.value)} 
+                id="raridade">
+                    <option>Branco</option>
+                    <option>Azul claro</option>
+                    <option>Azul</option>
+                    <option>Roxo</option>
+                    <option>Rosa</option>
+                    <option>Vermelho</option>
+                    <option>Laranja</option>
+                    <option>Dourado</option>
                 </select>
             </div>
             <div id="div-button">
-                <button type="button" id="cadastrar" onClick={buttonClick}>Cadastrar</button>
+                <button onClick={buttonClick} type="button" id="cadastrar">Cadastrar</button>
             </div>
         </form>
     );
