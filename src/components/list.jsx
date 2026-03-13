@@ -18,13 +18,14 @@ export default function Listagem({ dados, remover }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {dados.map((arma) => (
-                            <tr key={arma.codigo}>
-                                <td>{arma.arma}</td>
-                                <td>{arma.skin}</td>
-                                <td>{arma.quantidade}</td>
-                                <td>{arma.raridade}</td>
-                                <td><button onClick={() => remover(arma.codigo)}>Excluir</button></td>
+                        {dados.map((equipamento) => (
+                            <tr key={equipamento.codigo}>
+                                <td>{equipamento.codigo}</td>
+                                <td>{equipamento.arma}</td>
+                                <td>{equipamento.skin}</td>
+                                <td>{equipamento.quantidade}</td>
+                                <td>{equipamento.raridade}</td>
+                                <td><button onClick={() => remover(equipamento.codigo)}>Excluir</button></td>
                             </tr>
                         ))}
                     </tbody>

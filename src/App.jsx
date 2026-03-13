@@ -1,6 +1,8 @@
 import Titulo from "./components/title";
 import Formulario from "./components/form";
 import Listagem from "./components/list";
+import Imagem from "./components/imagem";
+import "./App.css"
 import { useState } from "react";
 
 export default function App() {
@@ -37,9 +39,12 @@ export default function App() {
   }
   return (
     <>
-      <Titulo text="Destrancar Recipiente" />
-      <Formulario adicionar={incluirArma} />
-      <Listagem dados={arma} remover={excluirArma} />
+      <main id="main">
+        <Titulo text="Destrancar Recipiente" />
+        <Formulario adicionar={incluirArma} />
+        <Imagem />
+        <Listagem dados={arma} remover={excluirArma} />
+      </main>
     </>
   );
 }

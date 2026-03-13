@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./Form.css";
 
 export default function Formulario({adicionar}) {
     const [codigo, setCodigo] = useState("");
@@ -30,7 +31,7 @@ export default function Formulario({adicionar}) {
     }
     return (
         
-        <form>
+        <form id="form">
             <div>
                 <label for="codigo">Codigo: </label>
                 <input value={codigo} onChange={(e) => setCodigo(e.target.value)} 
